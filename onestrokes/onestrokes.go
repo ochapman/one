@@ -290,7 +290,7 @@ func main() {
 
 	var val int32
 	var exist bool
-	for i = 0; i < one.GMeta.Height; i++ {
+	for i = one.GMeta.Height - 1; i >= 0; i-- {
 		for j = 0; j < one.GMeta.Width; j++ {
 			pos := one.Pos{X: j, Y: i}
 			val = 0

@@ -5,17 +5,6 @@
 * Created:	2018-10-29
  */
 
-// What it does:
-//
-// This example uses the Window class to open an image file, and then display
-// the image in a Window class.
-//
-// How to run:
-//
-// go run ./cmd/showimage/main.go /home/ron/Pictures/mcp23017.jpg
-//
-//
-
 package main
 
 import (
@@ -34,7 +23,7 @@ func SplitLargestRect(rect image.Rectangle) []image.Rectangle {
 	var n, l int
 	var isXBig bool
 	if dx > dy {
-		n = dx /dy
+		n = dx / dy
 		l = dy
 		isXBig = true
 	} else {
@@ -45,9 +34,9 @@ func SplitLargestRect(rect image.Rectangle) []image.Rectangle {
 	rects := make([]image.Rectangle, 0)
 	for i := 0; i < n; i++ {
 		if isXBig {
-			rects = append(rects, image.Rectangle{Min:image.Point{X:rect.Min.X+n*l, Y:rect.Min.Y}, Max:image.Point{X:rect.Max.X+n*l, Y:rect.Max.Y}})
+			rects = append(rects, image.Rectangle{Min: image.Point{X: rect.Min.X + n*l, Y: rect.Min.Y}, Max: image.Point{X: rect.Max.X + n*l, Y: rect.Max.Y}})
 		} else {
-			rects = append(rects, image.Rectangle{Min:image.Point{X:rect.Min.X, Y:rect.Min.Y+n*l}, Max:image.Point{X:rect.Max.X, Y: rect.Max.Y+n*l}})
+			rects = append(rects, image.Rectangle{Min: image.Point{X: rect.Min.X, Y: rect.Min.Y + n*l}, Max: image.Point{X: rect.Max.X, Y: rect.Max.Y + n*l}})
 		}
 	}
 	return rects
@@ -66,11 +55,9 @@ func RectToGBlock(rects []image.Rectangle) {
 
 }
 
-
-
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("How to run:ntshowimage [imgfile]")
+		fmt.Println("Usage: %s upload_img/xx.png", os.Args[0])
 		return
 	}
 
